@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from 'components/Header';
 import Flex from 'styled-flex-component';
 import Notification from 'components/Notification';
 import Store from 'store';
+import { RootProvider } from 'contexts/root';
 
 const AppPresenter = () => (
-  <Fragment>
+  <>
     <Header />
     <Flex alignCenter full column>
       <Store.Consumer>
@@ -15,7 +16,12 @@ const AppPresenter = () => (
         }}
       </Store.Consumer>
     </Flex>
-  </Fragment>
+    <RootProvider>
+      <div className="panes">
+        <h2>RootProvider</h2>
+      </div>
+    </RootProvider>
+  </>
 );
 
 export default AppPresenter;
